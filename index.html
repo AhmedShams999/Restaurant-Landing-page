@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nile Heritage Restaurant - Authentic Egyptian Cuisine in Fayoum</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --warm-gold: #F4E4BC;
+            --deep-gold: #B8860B;
+            --terracotta: #D2691E;
+            --warm-brown: #8B4513;
+            --cream: #FFF8DC;
+            --sand: #F4A460;
+            --dark-brown: #5D4037;
+            --gradient-bg: linear-gradient(135deg, var(--warm-gold) 0%, var(--cream) 100%);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-brown);
+            overflow-x: hidden;
+        }
+
+        /* Egyptian Pattern Background */
+        .egyptian-pattern {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .egyptian-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(210, 105, 30, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Header/Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 248, 220, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary-gold);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--warm-brown);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--warm-brown);
+            font-weight: 500;
+        }
+
+        .hero-feature i {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-gold);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark-brown);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-gold);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card-1 {
+            top: 10%;
+            right: -10%;
+            max-width: 200px;
+        }
+
+        .floating-card-2 {
+            bottom: 10%;
+            left: -10%;
+            max-width: 180px;
+        }
+
+        .floating-card h4 {
+            color: var(--primary-gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .rating {
+            display: flex;
+            gap: 0.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating i {
+            color: var(--primary-gold);
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: white;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--primary-gold);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--warm-gold);
+            color: var(--primary-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--warm-brown);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: var(--warm-brown);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .heritage-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .heritage-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--warm-gold);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .heritage-feature:hover {
+            transform: translateY(-3px);
+        }
+
+        .heritage-feature i {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 6rem 0;
+            background: var(--gradient-bg);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-item-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-gold);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .menu-item-content {
+            padding: 2rem;
+        }
+
+        .menu-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item-price {
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item p {
+            color: var(--warm-brown);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .menu-features {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-feature {
+            background: var(--warm-gold);
+            color: var(--primary-gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--warm-gold);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary-gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .testimonial-content {
+            color: var(--dark-brown);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            color: var(--dark-brown);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info span {
+            color: var(--warm-brown);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .testimonial-rating i {
+            color: var(--primary-gold);
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--deep-gold) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-feature i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-feature span {
+            font-weight: 600;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .contact-item div h4 {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item div span {
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-brown);
+            color: var(--warm-gold);
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-section p,
+        .footer-section span {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-gold);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--warm-gold);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--warm-brown);
+            padding-top: 1rem;
+            text-align: center;
+            color: var(--warm-gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-features {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .heritage-features {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .cta-features {
+                gap: 1.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .floating-card-1,
+            .floating-card-2 {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .menu-item-content {
+                padding: 1.5rem;
+            }
+
+            .testimonial {
+                padding: 2rem;
+            }
+
+            .cta {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-crown"></i>
+                Nile Heritage
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero egyptian-pattern">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    Authentic Since 1985
+                </div>
+                <h1>Taste the Heritage of Ancient Egypt</h1>
+                <p class="hero-subtitle">
+                    Experience authentic Egyptian cuisine crafted with farm-fresh ingredients from the fertile lands of Fayoum, 
+                    served with breathtaking views of Lake Qarun's golden sunset.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-seedling"></i>
+                        <span>Farm-to-Table Fresh</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-mountain"></i>
+                        <span>Scenic Lake Views</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-crown"></i>
+                        <span>Family Heritage</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar-alt"></i>
+                        Reserve Your Table
+                    </a>
+                    <a href="#menu" class="btn btn-secondary">
+                        <i class="fas fa-utensils"></i>
+                        View Our Menu
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Traditional Egyptian feast with aromatic spices and fresh ingredients">
+                
+                <div class="floating-card floating-card-1">
+                    <h4>Premium Quality</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>Fresh ingredients daily</p>
+                </div>
+
+                <div class="floating-card floating-card-2">
+                    <h4>Lake Qarun View</h4>
+                    <p>Dine with stunning sunset views over Egypt's ancient lake</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Warm, traditional restaurant interior with Egyptian decor">
+                <div class="experience-badge">
+                    <span>40+</span>
+                    <small>Years</small>
+                </div>
+            </div>
+
+            <div class="about-content fade-in">
+                <div class="section-badge">Our Story</div>
+                <h3>Four Decades of Authentic Egyptian Flavors</h3>
+                <p>
+                    Founded in 1985 by the Hassan family, Nile Heritage Restaurant has been serving authentic Egyptian cuisine 
+                    in the heart of Fayoum for over four decades. Our recipes have been passed down through generations, 
+                    preserving the rich culinary traditions of ancient Egypt.
+                </p>
+                <p>
+                    We source our ingredients directly from local farmers in the fertile Fayoum Oasis, ensuring every dish 
+                    captures the true essence of Egyptian flavors. Our restaurant overlooks the magnificent Lake Qarun, 
+                    providing our guests with an unforgettable dining experience that combines exceptional food with 
+                    breathtaking natural beauty.
+                </p>
+
+                <div class="heritage-features">
+                    <div class="heritage-feature">
+                        <i class="fas fa-leaf"></i>
+                        <div>
+                            <h4>Farm Fresh Daily</h4>
+                            <p>Direct from Fayoum farms</p>
+                        </div>
+                    </div>
+                    <div class="heritage-feature">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>Family Traditions</h4>
+                            <p>Four generations of recipes</p>
+                        </div>
+                    </div>
+                    <div class="heritage-feature">
+                        <i class="fas fa-water"></i>
+                        <div>
+                            <h4>Lake Qarun Views</h4>
+                            <p>Scenic waterfront dining</p>
+                        </div>
+                    </div>
+                    <div class="heritage-feature">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <h4>Made with Love</h4>
+                            <p>Every dish tells a story</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu egyptian-pattern">
+        <div class="menu-container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Our Specialties</div>
+                <h2 class="section-title">Signature Egyptian Dishes</h2>
+                <p class="section-subtitle">
+                    Discover our carefully crafted menu featuring traditional Egyptian cuisine made with the finest local ingredients
+                </p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="https://www.chocolatesandchai.com/wp-content/uploads/2023/02/Egyptian-Koshari-Featured.jpg" alt="Traditional Egyptian Koshari dish">
+                        <div class="menu-badge">Most Popular</div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h4>Traditional Koshari</h4>
+                        <div class="menu-item-price">120 EGP</div>
+                        <p>Egypt's beloved national dish featuring layers of rice, lentils, pasta, and chickpeas topped with crispy onions and our signature spicy tomato sauce.</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Vegetarian</span>
+                            <span class="menu-feature">Spicy</span>
+                            <span class="menu-feature">Traditional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Grilled Fayoum Fish with herbs">
+                        <div class="menu-badge">Chef's Choice</div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h4>Grilled Fayoum Fish</h4>
+                        <div class="menu-item-price">180 EGP</div>
+                        <p>Fresh catch from Lake Qarun, grilled to perfection with aromatic herbs, garlic, and lemon. Served with traditional Egyptian rice and tahini sauce.</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Fresh Catch</span>
+                            <span class="menu-feature">Grilled</span>
+                            <span class="menu-feature">Local Specialty</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item fade-in">
+                    <div class="menu-item-image">
+                        <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Stuffed vine leaves and Egyptian mezze">
+                        <div class="menu-badge">Family Recipe</div>
+                    </div>
+                    <div class="menu-item-content">
+                        <h4>Mahshi Platter</h4>
+                        <div class="menu-item-price">150 EGP</div>
+                        <p>Traditional stuffed vegetables including vine leaves, zucchini, and bell peppers filled with seasoned rice, herbs, and aromatic spices.</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Homestyle</span>
+                            <span class="menu-feature">Vegetarian</span>
+                            <span class="menu-feature">Heritage Recipe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header fade-in">
+                <div class="section-badge">What Our Guests Say</div>
+                <h2 class="section-title">Loved by Locals & Travelers</h2>
+                <p class="section-subtitle">
+                    Read what our valued guests have to say about their unforgettable dining experience at Nile Heritage
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        The most authentic Egyptian meal I've had! The koshari was absolutely divine, and the lake view during sunset made it a magical experience. The Hassan family's hospitality is unmatched.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h5>Sarah Mitchell</h5>
+                            <span>Tourist from London</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        As a Fayoum local, I can confidently say this is the best restaurant in our city. The fish from Lake Qarun is always fresh, and the traditional recipes remind me of my grandmother's cooking.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h5>Ahmed El-Sherif</h5>
+                            <span>Local Resident</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial fade-in">
+                    <div class="testimonial-content">
+                        Incredible atmosphere with stunning views! The mahshi platter was perfection - you can taste the love and tradition in every bite. A must-visit when in Fayoum!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <div class="author-info">
+                            <h5>Layla Mansour</h5>
+                            <span>Food Blogger</span>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="cta-container">
+            <h2 class="fade-in">Experience Egyptian Heritage Today</h2>
+            <p class="cta-subtitle fade-in">Reserve your table for an unforgettable culinary journey</p>
+
+            <div class="cta-features fade-in">
+                <div class="cta-feature">
+                    <i class="fas fa-clock"></i>
+                    <span>Open Daily</span>
+                    <small>12:00 PM - 11:00 PM</small>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-utensils"></i>
+                    <span>Fresh Daily</span>
+                    <small>Farm to Table</small>
+                </div>
+                <div class="cta-feature">
+                    <i class="fas fa-eye"></i>
+                    <span>Lake Views</span>
+                    <small>Sunset Dining</small>
+                </div>
+            </div>
+
+            <div class="hero-buttons fade-in">
+                <a href="tel:+201234567890" class="btn btn-primary">
+                    <i class="fas fa-phone"></i>
+                    Call Now to Reserve
+                </a>
+                <a href="https://wa.me/201234567890" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp Us
+                </a>
+            </div>
+
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <span>Lake Qarun Waterfront<br>Fayoum, Egypt</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <span>+20 123 456 7890</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <span>info@nileheritage.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Nile Heritage Restaurant</h4>
+                    <p>Preserving Egyptian culinary traditions since 1985. Experience authentic flavors with breathtaking Lake Qarun views.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                        <a href="#"><i class="fab fa-google"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Opening Hours</h4>
+                    <p>Monday - Sunday: 12:00 PM - 11:00 PM</p>
+                    <p>Kitchen closes at 10:30 PM</p>
+                    <p>Reservations recommended for dinner</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Lake Qarun Waterfront, Fayoum</p>
+                    <p><i class="fas fa-phone"></i> +20 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@nileheritage.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nile Heritage Restaurant. All rights reserved. | Crafted with ❤️ in Fayoum</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.style.background = 'rgba(255, 248, 220, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 248, 220, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add stagger animation to menu items
+        const menuItems = document.querySelectorAll('.menu-item');
+        menuItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+
+        // Add stagger animation to testimonials
+        const testimonials = document.querySelectorAll('.testimonial');
+        testimonials.forEach((testimonial, index) => {
+            testimonial.style.animationDelay = `${index * 0.15}s`;
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Add hover effects to menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Add click to call functionality
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Analytics tracking could go here
+                console.log('Phone call initiated');
+            });
+        });
+
+        // Add click to WhatsApp functionality
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Analytics tracking could go here
+                console.log('WhatsApp chat initiated');
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Add dynamic year to footer
+        const currentYear = new Date().getFullYear();
+        document.querySelector('.footer-bottom p').innerHTML = 
+            document.querySelector('.footer-bottom p').innerHTML.replace('2024', currentYear);
+
+        // Add menu item price hover effect
+        document.querySelectorAll('.menu-item-price').forEach(price => {
+            price.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.color = 'var(--deep-gold)';
+            });
+            
+            price.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.color = 'var(--primary-gold)';
+            });
+        });
+
+        // Add testimonial rotation effect
+        let currentTestimonial = 0;
+        const testimonialCards = document.querySelectorAll('.testimonial');
+        
+        function rotateTestimonials() {
+            testimonialCards.forEach((card, index) => {
+                if (index === currentTestimonial) {
+                    card.style.transform = 'translateY(-5px) scale(1.02)';
+                    card.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.2)';
+                } else {
+                    card.style.transform = 'translateY(0) scale(1)';
+                    card.style.boxShadow = 'none';
+                }
+            });
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+        }
+
+        // Start testimonial rotation
+        setInterval(rotateTestimonials, 3000);
+
+        // Add floating animation to hero cards
+        document.querySelectorAll('.floating-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.5}s`;
+        });
+
+        // Add scroll-triggered counter animation for experience badge
+        function animateCounter() {
+            const counter = document.querySelector('.experience-badge span');
+            const targetValue = 40;
+            let currentValue = 0;
+            const increment = targetValue / 50;
+            
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(currentValue) + '+';
+            }, 50);
+        }
+
+        // Trigger counter when experience badge is visible
+        const experienceBadge = document.querySelector('.experience-badge');
+        if (experienceBadge) {
+            const experienceObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter();
+                        experienceObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            experienceObserver.observe(experienceBadge);
+        }
+    </script>
+</body>
+</html>
